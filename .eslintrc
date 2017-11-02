@@ -1,0 +1,38 @@
+{
+    "extends": [
+       "eslint-config-airbnb",
+    "eslint-config-prettier",
+    "eslint-config-prettier/react"
+    ],
+    "plugins": ["react", "prettier"],
+    "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    }
+  },
+      "rules": {
+   " no-console": ["warn", { "allow": ["warn", "error", "log"] }],
+    "linebreak-style": "off",
+    "indent": 0, // eslint vs prettier. Round 1! Fight!
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "prettier/prettier": [
+      "error",
+      {
+        // Number of spaces it should use per tab
+        "tabWidth": 2,
+        "singleQuote": true,
+        // Controls the printing of trailing commas wherever possible. Valid options:
+        // "none" - No trailing commas
+        // "es5"  - Trailing commas where valid in ES5 (objects, arrays, etc)
+        // "all"  - Trailing commas wherever possible (function arguments)
+        "trailingComma": "none",
+        // If true, puts the `>` of a multi-line jsx element at the end of
+        // the last line instead of being alone on the next line
+        "jsxBracketSameLine": false
+      }
+    ]
+  }
+}

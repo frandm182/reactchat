@@ -1,0 +1,12 @@
+# Editors
+.idea
+.vscode
+
+# dependencies
+/build
+/node_modules
+/dist
+.project
+yarn-error.log
+package-lock.json
+yarn.lock
