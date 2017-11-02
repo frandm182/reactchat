@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "build": "node scripts/copy_assets.js && node_modules/.bin/webpack --config webpack.config.prod.js",
-    "start": "node_modules/.bin/webpack-dev-server"
+    "start": "node_modules/.bin/webpack-dev-server",
+    "eslint": "eslint ./src/**",
+    "precommit": "npm run build && npm run eslint"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
