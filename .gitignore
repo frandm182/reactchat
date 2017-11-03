@@ -5,6 +5,7 @@
 # dependencies
 /build
 /node_modules
+/functions/node_modules
 /dist
 /public/secrets.js
 .project
