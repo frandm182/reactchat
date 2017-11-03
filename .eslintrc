@@ -10,6 +10,7 @@
       "prettier",
       "jest"
    ],
+   "parser": "babel-eslint",
    "parserOptions":{  
       "ecmaVersion":8,
       "sourceType":"module",
@@ -51,6 +52,7 @@
             ]
          }
       ],
+      "click-events-have-key-events":0,
       "react/require-default-props":0,
       "react/prefer-stateless-function":0,
       "jest/no-disabled-tests":"error",
@@ -69,6 +71,19 @@
             // the last line instead of being alone on the next line 
           "jsxBracketSameLine":false
          }
+      ],
+      "jsx-a11y/no-noninteractive-element-interactions": [
+        "error",
+        {
+          "handlers": [
+            "onClick",
+            "onMouseDown",
+            "onMouseUp",
+            "onKeyPress",
+            "onKeyDown",
+            "onKeyUp"
+          ]
+        }
       ]
    }
 }
