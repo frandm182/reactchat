@@ -7,5 +7,20 @@
     </head>
     <body>
         <div id="app"></div>
+        <script src="/secrets.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+        <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: window.apiKey,
+            authDomain: "reactchat-3b4dc.firebaseapp.com",
+            databaseURL: "https://reactchat-3b4dc.firebaseio.com",
+            projectId: "reactchat-3b4dc",
+            storageBucket: "",
+            messagingSenderId: window.messagingSenderId
+        };
+        firebase.initializeApp(config);
+        window.firebase = firebase;
+        </script>
     </body>
 </html>
