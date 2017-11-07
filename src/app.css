@@ -13,7 +13,7 @@ body {
   box-sizing: border-box;
 }
 
-#root {
+#app {
   height: 100%;
   display: flex;
   justify-content: center;

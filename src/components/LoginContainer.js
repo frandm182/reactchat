@@ -80,7 +80,7 @@ class LoginContainer extends Component {
 }
 
 LoginContainer.propTypes = {
-  history: PropTypes.arrayOf(PropTypes.string)
+  history: PropTypes.shape({ push: PropTypes.func })
 };
 
 export default LoginContainer;
