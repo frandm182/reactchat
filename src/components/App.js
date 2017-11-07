@@ -5,16 +5,23 @@ import PropTypes from 'prop-types';
 import LoginContainer from './LoginContainer';
 import ChatContainer from './ChatContainer';
 import UserContainer from './UserContainer';
+import NotificationResource from '../resources/NotificationResource';
 import '../app.css';
 
 class App extends Component {
   state = { user: null, messages: [], messagesLoaded: false };
 
   componentDidMount() {
+    this.notifications = new NotificationResource(
+      firebase.messaging(),
+      firebase.database()
+    );
     firebase.auth().onAuthStateChanged(user => {
       console.log(this.state.user);
       if (user) {
         this.setState({ user });
+        this.listenForMessages();
+        this.notifications.changeUser(user);
       } else {
         this.props.history.push('/login');
       }
@@ -37,6 +44,18 @@ class App extends Component {
     });
     this.setState({ messages });
   };
+  listenForMessages = () => {
+    firebase
+      .database()
+      .ref('/messages')
+      .on('value', snapshot => {
+        this.onMessage(snapshot);
+        if (!this.state.messagesLoaded) {
+          this.setState({ messagesLoaded: true });
+        }
+      });
+  };
+
   handleSubmitMessage = msg => {
     const data = {
       msg,
